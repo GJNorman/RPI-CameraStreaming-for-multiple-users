@@ -1,0 +1,181 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  margin: auto;
+  background-color: black;
+  opacity:0.6;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+
+}
+
+.navbar a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.main {
+  padding: 16px;
+  margin-bottom: 30px;
+}
+
+
+.camera-movement{
+  float: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.lights-button{
+	float: right;
+}
+
+i.fa {
+  display: inline-block;
+  border-radius: 60px;
+  box-shadow: 0px 0px 2px #888;
+  padding: 0.5em 0.6em;
+
+
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 35%
+}
+
+button {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}
+
+/*CSS*/
+.camera-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  /* Preserve aspet ratio */
+  min-width: 100%;
+  min-height: 100%;
+
+    /* Full height */
+  height: 100%;
+
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: black;
+}
+
+
+</style>
+</head>
+
+<title>VideoStream</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--- icons list can be found here https://fontawesome.com/v4/icons/  -->
+<!--- when you create a button; using this example https://fontawesome.com/v4/icon/wrench -->
+<!--- you will list the class as <i class="fa fa-wrench" aria-hidden="true"></i> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<body>
+<!-- 			Create an image container for the camera stream  -->
+<div class="main" id="newpost">
+  <img  class="camera-bg" style="width: 100%; height:80%; background-attachment: fixed;" id="cameraStream" class="center">
+</div>
+
+
+<div class="navbar">
+
+     <div> 
+          <a> 
+              <button id="start-button" onclick="startFilming()">
+                  <i style="background: orange; color: white;" class="fa fa-play-circle fa-2x" aria-hidden="true"></i>
+              </button>
+         </a>
+    </div>
+    <div> 
+          <a> 
+              <button id="stop-button" onclick="stopFilming()">
+                  <i style="background: red; color: white;" class="fa fa-times fa-2x" aria-hidden="true"></i>
+              </button>
+         </a>
+    </div>
+
+   <div >
+          <a > 
+              <button id="Service-Mode-button" >
+                  <i style="background: blue; color: white;" class="fa fa-wrench fa-2x" aria-hidden="true"></i>
+              </button>
+         </a>
+    </div>
+    <div >
+          <a > 
+              <button id="Save-button" >
+                  <i style="background: green; color: white;" class="fa fa-floppy-o fa-2x" aria-hidden="true"></i>
+              </button>
+         </a>
+    </div>
+
+
+</div>
+
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="{{url_for('RequestScriptFile', filename='JavaScriptCommon.js')}}"></script>
+<script src="{{url_for('RequestScriptFile', filename='RequestNextFrame.js')}}"></script>
+<script src="{{url_for('RequestScriptFile', filename='ServiceModeTests.js')}}"></script>
+
+</body>
+</html>
