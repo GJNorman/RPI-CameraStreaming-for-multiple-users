@@ -10,11 +10,17 @@ The main application writes video frames to a publisher socket. Each client will
 installation using pi OS
 
 $ apt-get install python3-opencv
+
 $ apt-get install pyzmq
+
 $ apt-get install pip3
+
 $ pip3 install Flask
 
+
 install apache
+
 $ apt-get install apache2
+
 $ apt-get install libapache2-mod-wsgi-py
 
