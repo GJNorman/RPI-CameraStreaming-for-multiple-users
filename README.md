@@ -15,12 +15,22 @@ $ apt-get install pyzmq
 
 $ apt-get install pip3
 
-$ pip3 install Flask
-
 
 install apache
+
+$ pip3 install Flask
 
 $ apt-get install apache2
 
 $ apt-get install libapache2-mod-wsgi-py
+
+Tell apache to listen on port 8080 (or whatever else)
+
+$ nano /etc/apache2/ports.conf
+
+add "Listen 8080" underneath "Listen 80"
+
+copy the file "8080-CameraInterface.conf" into "/etc/apache2/sites-available"
+
+
 
