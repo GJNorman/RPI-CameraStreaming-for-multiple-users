@@ -87,10 +87,6 @@ def saveSettings(new_global_Settings):
 
     File.close()
 
-#del global_Settings["Camera_ROI_List"]["ROI_1"]
-#global_Settings["Camera_ROI_List"]["Aliquoter_AccessPoint"] = [[10,15],[50,50],'red']
-#saveSettings(global_Settings)
-
 """
     for system calls
     used to set dictionary values from non-python programs
