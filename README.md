@@ -14,7 +14,7 @@ The main application writes video frames to a publisher socket. Each client will
 
 ### Code Integration
 
-The Camera handling process (CameraMain.py) will dynamically import a module specified in the settings dictionary under "ModuleType" (see programSettings.py)
+The Camera handling process (CameraMain.py) will dynamically import a custom module specified in the settings dictionary under "ModuleType" (see programSettings.py)
 
 <img width="726" alt="Screenshot 2023-02-16 at 7 02 07 pm" src="https://user-images.githubusercontent.com/113757511/219303944-6e298070-36fc-4c44-9d0f-acd9d8263028.png">
 
