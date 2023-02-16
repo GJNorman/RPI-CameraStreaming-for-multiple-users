@@ -72,28 +72,49 @@ It will also add a black outline to the text first for readability reasons.
 
 ### Installation using pi OS
 
-$ apt-get install python3-opencv
+    $ apt-get install python3-opencv
 
-$ apt-get install pyzmq
+    $ apt-get install pyzmq
 
-$ apt-get install pip3
+    $ apt-get install pip3
 
 
 install apache
 
-$ pip3 install Flask
+    $ pip3 install Flask
 
-$ apt-get install apache2
+    $ apt-get install apache2
 
-$ apt-get install libapache2-mod-wsgi-py
+    $ apt-get install libapache2-mod-wsgi-py
 
 Tell apache to listen on port 8080 (or whatever else)
 
-$ nano /etc/apache2/ports.conf
+    $ nano /etc/apache2/ports.conf
 
 add "Listen 8080" underneath "Listen 80"
 
+<img width="452" alt="image" src="https://user-images.githubusercontent.com/113757511/219314754-54fb7387-9bdf-46df-b593-2987993238e4.png">
+
 copy the file "8080-CameraInterface.conf" into "/etc/apache2/sites-available"
+
+Enable the site
+
+    $ sudo a2ensite 8080-CameraInterface.conf
+
+copy "scripts", "static" and "templates" into var/www/html
+
+give apache ownership of the files
+- sudo chown -R www-data:www-data /var/www
+- sudo chmod -R 777 /home/pi/.local/lib/python3.9/
+
+
+set permission to access webcam
+-	sudo chown www-data:www-data /dev/video0
+-	sudo adduser www-data video
+-	sudo usermod -a -G video www-data
+
+restart apache2
+-	sudo service apache2 restart
 
 ### Operation
 
@@ -110,3 +131,11 @@ The Service screen (Wrench) currently will show the Regions of interest used by 
 <img width="452" alt="image" src="https://user-images.githubusercontent.com/113757511/219306232-15d370ce-223e-4997-8a1e-e03812ab4e27.png">
 
 Future updates will allow these ot be adjusted/added/removed
+
+Troubleshooting
+
+you can view apache error logs by entering
+
+    sudo tail -10 /var/log/apache2/error.log
+   
+where -10 means the last 10 messages
